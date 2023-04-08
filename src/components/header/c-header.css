@@ -1,0 +1,41 @@
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: baseline;
+    padding-left: 1em;
+    padding-right: 4em;
+}
+
+.c-header{
+    display: flex;
+    padding: 1% 3%;
+    /* margin-bottom: 1%;
+}
+
+.c-header-title{ */
+    font-size: 2em;
+}
+
+.c-header-widget {
+    font-size: 2em;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 480px) {
+    .flex-container{
+        padding-right: 1.5em;
+    }
+
+    .c-header {
+        padding: 1% 3%;
+        font-size: 1.2em;
+    }
+
+    .c-header-widget {
+        font-size: 1em;
+    }
+}

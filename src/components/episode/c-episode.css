@@ -1,0 +1,85 @@
+/* .flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+} */
+.card {
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.15);
+}
+
+.flex-container-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-container-widgets {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    margin: 0.5em;
+}
+
+.container-count-comments {
+/* .count-products { */
+    position: absolute;
+    top: 65%;
+    right: 93%;
+    cursor: pointer;
+    background-color: #090979;
+    color: #FFFFFF;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+/*contiene el 0*/
+.count-comments {
+/* .contador-productos { */
+    font-size: 10px;
+    width: 6px;
+    height: 15px;
+}
+
+@media only screen and (max-width: 480px) {
+    .cards-padding{
+        padding-top: 0.5em;
+        padding-left: 0.2em;
+        padding-right: 0em;
+    }
+
+    .flex-cards-title {
+        /* margin: 2% 15%; */
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 0.7em;
+    }
+
+    .flex-cards-text {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 0.5em;
+    }
+
+    .flex-container-widgets {
+        margin: 0.3em;
+    }
+
+    .count-products {
+        top: 60%;
+        right: 72%;
+    }
+
+    /* .contador-productos {
+        font-size: 10px;
+        width: 6px;
+        height: 15px;
+    } */
+}
