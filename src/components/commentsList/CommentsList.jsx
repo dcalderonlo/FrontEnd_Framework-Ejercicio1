@@ -89,34 +89,19 @@ const comments = [
 
 const CommentsList = () => {
     return(
-        <div className="modal fade" id='modalCard' tabIndex="-1" aria-hidden="true" aria-labelledby='modalTitle'>
-            <div className='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
-                <div className='modal-content'>
-                    <div className='modal-header'>
-                        <h5 className='modal-title' id='modalTitle'> titulo card </h5>
-                        <button type='button' className='btn-close' data-bs-dismiss='modal' aria-label='Cerrar'></button>
-                        {
-                            comments.map((commentary, i) => (
-                                <Comment
-                                    key = { i }
-                                    user = { commentary.user }
-                                    comment = { commentary.comment }
-                                    date = { commentary.date }
-                                />
-                            ))
-                        }
-                    </div>
-                    <div className='modal-body'>
-                        <img> Img card </img>
-                        <p>Description card</p>
-                    </div>
-                    <div className='modal-footer'>
-                        <button type='button' className='btn btn-secondary' data-bs-dismiss='madal'>Cerrar</button>
-                        <button type='button' className='btn btn-primary' data-bs-dismiss='modal'>Aceptar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <>
+        {
+            comments.map((commentary, i) => (
+                <Comment
+                    key = { i }
+                    user = { commentary.user }
+                    comment = { commentary.comment }
+                    date = { commentary.date }
+                />
+            ))
+        }
+        </>
+        
     );
 }
 

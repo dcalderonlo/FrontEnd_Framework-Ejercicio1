@@ -25,7 +25,7 @@ const episodes = [
 
 const EpisodesList = () => {
   return (
-    <div className="container d-flex p-2">
+    <>
       {episodes.map((episode, i) => (
         <Episode
           key={i}
@@ -34,8 +34,8 @@ const EpisodesList = () => {
           description={episode.description}
         />
       ))}
-    </div>
+    </>
   );
 }
-
+console.log(EpisodesList);
 export default EpisodesList;
