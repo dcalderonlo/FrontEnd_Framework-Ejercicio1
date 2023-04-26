@@ -1,4 +1,4 @@
-import Comment from '../comment/Comment';
+import Comment from './Comment';
 
 const comments = [
     {//1

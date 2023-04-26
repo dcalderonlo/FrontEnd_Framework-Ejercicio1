@@ -12,13 +12,24 @@
 
 .c-header{
     display: flex;
-    padding: 1% 3%;
-    /* margin-bottom: 1%;
-}
-
-.c-header-title{ */
     font-size: 2em;
 }
+
+.c-header a {
+    text-decoration: none;
+    color: #000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 2em;
+    margin: 0 0.5em;
+}
+
 
 .c-header-widget {
     font-size: 2em;
@@ -36,6 +47,6 @@
     }
 
     .c-header-widget {
-        font-size: 1em;
+        font-size: 1.5em;
     }
 }
