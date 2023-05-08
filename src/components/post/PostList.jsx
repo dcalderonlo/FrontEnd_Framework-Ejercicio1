@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Post from "./Post";
-import getPost from "../../Services/PostService";
+import GetPosts from "../../Services/PostService";
+import { SearchContext } from "../../Context/RouteContext";
 
-const PostList = ({query}) => {
+const PostList = () => {
+
+  const { query } = useContext(SearchContext);
   const [ post, setPost ] = useState([]);
-  const [loading, setLoading] = useState(true);//Estado de mensaje
+  const [ loading, setLoading ] = useState(true);//Estado de mensaje
 
   useEffect(() => {
     const interval = setInterval(() => {
-      getPost().then((data) => {
+      GetPosts().then((data) => {
         setPost(data);
         setLoading(false);//Mensaje cambia a false y se deja de mostrar
       })
@@ -42,14 +45,16 @@ const PostList = ({query}) => {
             .filter((post) => {
               return query.toLowerCase() === ''
                 ? post
-                : post.user.toLowerCase().includes(query) || post.description.toLowerCase().includes(query)
+                : post.author.name.toLowerCase().includes(query)
+                  || post.text.toLowerCase().includes(query)
             })
             .map((post, i) => (
               <Post
                 key={i}
-                img={post.img}
-                user={post.user}
-                description={post.description}
+                img={post.image}
+                user={post.author.name}
+                description={post.text}
+                like={post.likes}
               />
             ))}
           </>

@@ -18,6 +18,7 @@
 .c-header a {
     text-decoration: none;
     color: #000;
+    cursor: pointer;
 }
 
 .logo {

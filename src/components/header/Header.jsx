@@ -1,24 +1,24 @@
-// import React from "react";
 import "./c-header.css";
 import logo from './img/logo.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom";
 
-const Header = ({toSection}) => {
+const Header = () => {
   
   return (
     <header>
       <nav className="navbar bg-light">
         <div className="container-fluid flex-container">
           <div className="navbar-brand mb-0 h1 c-header">
-            <a href={() => false} className="logo" onClick={toSection('home')}>
+            <Link to='/home' className="logo">
               <img src={ logo } alt="Nombre y logo de la compañía"/>
               <span>three pics</span>
-            </a>
+            </Link>
           </div>
-          <div className="c-header-widget" onClick={toSection('user')}>
+          <Link to='/user' className="c-header-widget">
             <FontAwesomeIcon icon={ faUser } />
-          </div>
+          </Link>
         </div>
       </nav>
     </header>

@@ -1,47 +1,49 @@
-import Header from "./header/Header";
-import SearchBar from "./search/SearchBar";
-import PostList from "./post/PostList";
-import UserList from "./user/UserList";
-import React, { useState } from "react";
+import LogIn from "./access/login/LogIn"
+import LogOut from "./access/logout/LogOut"
+import Header from "./header/Header"
+import SearchBar from "./search/SearchBar"
+import PostList from "./post/PostList"
+import UserList from "./user/UserList"
+import { Route, Routes } from "react-router-dom"
+import { ProtectedRoute } from "./ProtectedRoute"
+import ContextProvider from "../Context/RouteContext";
 
 const App = () => {
   
-  const [query, setQuery] = useState('');
-  const [section, setSection] = useState (() =>{
-    const { pathname } = window.location;
-    const section = pathname.slice(1);
-    return section;
-  });
-
-  const toSection = section => event => {
-    event.preventDefault()
- 
-    window.history.pushState(null, '', `/${section}`)
-    setSection(section)
-  }
-
-  const getContent = () => {
-    if(section === 'user'){
-      return (
-        <>
-          <Header toSection = {toSection}/>
-          <UserList />
-        </>
-      );
-    }else {
-      return (
-        <>
-          <Header toSection = {toSection}/>
-          <SearchBar setQuery = {setQuery} />
-          <PostList query={query} />
-        </>
-      );
-    }
-  }
-
   return(
     <>
-      {getContent()}
+      <ContextProvider>
+        <Routes>
+          <Route index element= {
+            <ProtectedRoute>
+              <Header />
+              <SearchBar />
+              <PostList />
+            </ProtectedRoute>
+          } />
+          <Route path='/login' element= {<LogIn />} />
+          <Route element= { <ProtectedRoute /> }>
+            <Route path='/home' element= {
+              <>
+                <Header />
+                <SearchBar />
+                <PostList />
+              </>
+            } />
+            <Route path='/user' element= {
+              <>
+                <Header />
+                <UserList />
+              </>
+            } />
+          </Route>
+          <Route path='/logout' element= {
+            <ProtectedRoute>
+              <LogOut />
+            </ProtectedRoute>
+          } />
+        </Routes>
+        </ContextProvider>
     </>
   );
 
